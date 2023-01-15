@@ -31,7 +31,7 @@ function mainController() {
 
 // First stage (first timeout dalay)
 
-startTimeout = () => {
+let startTimeout = () => {
   timerId.timeoutId = setTimeout(() => {
     createPromise();
     startInterval();
@@ -40,7 +40,7 @@ startTimeout = () => {
 
 // Second stage (setInterval)
 
-startInterval = () => {
+let startInterval = () => {
   timerId.intervalId = setInterval(() => {
     createPromise();
   }, delayObject.step);
@@ -48,7 +48,7 @@ startInterval = () => {
 
 // Check terms;
 
-createPromise = () => {
+let createPromise = () => {
   amountRepeat++;
   if (amountRepeat <= delayObject.amount) {
     const shouldResolve = Math.random() > 0.3;
@@ -68,7 +68,7 @@ createPromise = () => {
   }
 };
 
-cleaningTimer = () => {
+let cleaningTimer = () => {
   clearTimeout(timerId.intervalId);
   clearInterval(timerId.timeoutId);
 };
